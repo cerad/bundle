@@ -7,6 +7,8 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
+        bind:
+            $targetDirectory: '%ad_explorer_target_directory%'
 
     AD\ExplorerBundle\:
         resource: '../../*'
@@ -15,7 +17,3 @@ services:
     AD\ExplorerBundle\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
-
-    # Could have used a bind in the defaults section but That would make targetDirectory sort of a global
-    AD\ExplorerBundle\Service\FileUploader:
-        $targetDirectory: '%ad_explorer_target_directory%'
