@@ -1,0 +1,21 @@
+# explorer-bundle/Resources/config/services.yaml
+parameters:
+    # Cheating here, this would normally be part of the bundle configuration
+    ad_explorer_target_directory: 'some_directory'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    AD\ExplorerBundle\:
+        resource: '../../*'
+        exclude: '../../{DependencyInjection,Entity,Migrations,Tests,ADExplorerBundle.php}'
+
+    AD\ExplorerBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
+    # Could have used a bind in the defaults section but That would make targetDirectory sort of a global
+    AD\ExplorerBundle\Service\FileUploader:
+        $targetDirectory: '%ad_explorer_target_directory%'
