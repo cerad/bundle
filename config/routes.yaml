@@ -1,6 +1,8 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
 explorer:
   resource: '@ADExplorerBundle/Resources/config/routes.yaml'
   prefix: /explorer
+
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
