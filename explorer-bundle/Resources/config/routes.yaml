@@ -1,0 +1,3 @@
+explorer_add:
+    path: /add
+    controller: AD\ExplorerBundle\Controller\ExplorerController::add
